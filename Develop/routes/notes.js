@@ -1,42 +1,28 @@
-const notes = require('express').Router();
+const notesRouter = require('express').Router();
 const fs = require('fs');
+// const db = require('./db/db.json')
 
 
-
-notes.get('/', (req, res) => {
+notesRouter.get('/', (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) throw err;
-        const list = JSON.parse(data);
-        res.json(list);
+        let notes = JSON.parse(data);
+        res.json(notes)
     
 
 })});
 
-notes.post('/', (req, res) => {
-    fs.readFileSync('./db/db.json', 'utf8', (err) => {
-        if (err) throw err;
-    });
-
+notesRouter.post('/', (req, res) => {
     const newNote = req.body;
-    fs.appendFile('./db/db.json', newNote, (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            fs.readFileSync('./db/db.json', 'utf8', (data) => {
-                const updatedList = JSON.parse(data);
-                res.json(updatedList);
-            });
-        }
-        
-        
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) throw err;
+        let notes = JSON.parse(data);
+        notes.push(newNote);
+        fs.writeFileSync('db/db.json', JSON.stringify(notes));
+        res.json(notes);
     });
 
-    // fs.readFile('./db/db.json', 'utf8', (err, data) => {
-    //     if (err) throw err;
-    //     const list = JSON.parse(data);
-    //     res.json(list);
-    // });
-
+    
 });
 
-module.exports = notes;
+module.exports = notesRouter;
