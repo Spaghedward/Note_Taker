@@ -1,6 +1,6 @@
 const notesRouter = require('express').Router();
 const fs = require('fs');
-// const db = require('./db/db.json')
+const { v4: uuidv4 } = require('uuid');
 
 
 notesRouter.get('/', (req, res) => {
@@ -14,6 +14,7 @@ notesRouter.get('/', (req, res) => {
 
 notesRouter.post('/', (req, res) => {
     const newNote = req.body;
+    newNote.id = uuidv4();
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) throw err;
         let notes = JSON.parse(data);
@@ -24,5 +25,12 @@ notesRouter.post('/', (req, res) => {
 
     
 });
+
+// notesRouter.delete('/:id', (req, res) => {
+//     fs.readFile('./db/db.json', 'utf8', (err, data) => {
+//         if (err) throw err;
+//         let notes = JSON.parse(data);
+        
+// })})
 
 module.exports = notesRouter;

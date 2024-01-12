@@ -1,15 +1,35 @@
-# Note Taker Starter Code
+# Note Taker 
 
-GIVEN a note-taking application
-WHEN I open the Note Taker
-THEN I am presented with a landing page with a link to a notes page
-WHEN I click on the link to the notes page
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-WHEN I enter a new note title and the note’s text
-THEN a "Save Note" button and a "Clear Form" button appear in the navigation at the top of the page
-WHEN I click on the Save button
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes and the buttons in the navigation disappear
-WHEN I click on an existing note in the list in the left-hand column
-THEN that note appears in the right-hand column and a "New Note" button appears in the navigation
-WHEN I click on the "New Note" button in the navigation at the top of the page
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column and the button disappears
+![Static Badge](https://img.shields.io/badge/License-MIT-blue?style=plastic)
+
+## Photo
+![Picture of App](notetaker.png)
+
+## Table of Contents
+  * [Description](#description)
+  * [Technologies](#technologies-used)
+  * [Future Development](#future-development)
+  * [Demonstration](#demonstration)
+  * [Installation](#installation)
+
+## Description
+This project is a simple note taking application.  The user can create a note with a title that will pin to the list on the left.  The user can read the notes at anytime, and eventually delete notes.  
+
+## Future Development
+* Allowing others to interact with the notes.
+* Create time stamps for the notes.
+
+## Collaboration
+Feel free to use this as you please.  
+
+## Demonstration
+![Demo of note taker app](./public/assets/note-demo.jpg)
+
+## Installation
+* For installation onto local machine, clone provided repository.
+* Use `npm install` to install dependencies.
+* Use `npm start` to initiate the server in your terminal.
+* Visit `http://localhost:3000/` in your browser. Default provided port is 3000.
+
+## Contact
+[Github](https://github.com/Spaghedward)
